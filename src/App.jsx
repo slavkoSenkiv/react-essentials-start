@@ -1,6 +1,7 @@
 import { CORE_CONCEPTS } from "./data";
 import Header from "./components/Header/Header";
 import CoreConcept from "./components/CoreConcept";
+import TapButton from "./components/TapButton";
 
 function App() {
   return (
@@ -28,6 +29,13 @@ function App() {
     
           </ul>
           <h2>Time to get started!</h2>
+        </section>
+
+        <section id="examples">
+          <h2>Examples</h2>
+          <menu>
+            <TapButton>Components</TapButton>
+          </menu>
         </section>
         
       </main>
