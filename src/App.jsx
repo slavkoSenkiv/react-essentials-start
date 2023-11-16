@@ -35,6 +35,9 @@ function App() {
           <h2>Examples</h2>
           <menu>
             <TapButton>Components</TapButton>
+            <TapButton>JSX</TapButton>
+            <TapButton>Props</TapButton>
+            <TapButton>State</TapButton>
           </menu>
         </section>
         
