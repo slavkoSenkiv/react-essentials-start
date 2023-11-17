@@ -1,8 +1,11 @@
-import React from "react";
 export default function TapButton({ children }) {
+  function handleClick() {
+    console.log("Hello World!");
+  }
+
   return (
     <li>
-      <button>{children}</button>
+      <button onClick={handleClick}>{children}</button>
     </li>
   );
 }
