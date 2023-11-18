@@ -4,8 +4,12 @@ import CoreConcept from "./components/CoreConcept";
 import TapButton from "./components/TapButton";
 
 function App() {
-  function handleSelect() {
+  let tabContent = 'Please click a button';
+
+  function handleSelect(selectedButton) {
     console.log("Hello World! - selected");
+    tabContent = selectedButton;
+    console.log(tabContent);
   }
 
   return (
@@ -22,7 +26,7 @@ function App() {
             title={CORE_CONCEPTS[0].title}
             description={CORE_CONCEPTS[0].description}
             image={CORE_CONCEPTS[0].image}
-          />
+          />  
 
           {/* the following syntax is used when 
           component prop names MATCH the object prop names */}
@@ -38,13 +42,13 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TapButton onSelect={handleSelect}>Components</TapButton>
-            <TapButton onSelect={handleSelect}>JSX</TapButton>
-            <TapButton onSelect={handleSelect}>Props</TapButton>
-            <TapButton onSelect={handleSelect}>State</TapButton>
+            <TapButton onSelect={() => handleSelect('components')}>Components</TapButton>
+            <TapButton onSelect={() => handleSelect('jsx')}>JSX</TapButton>
+            <TapButton onSelect={() => handleSelect('props')}>Props</TapButton>
+            <TapButton onSelect={() => handleSelect('state')}>State</TapButton>
           </menu>
+          {tabContent}
         </section>
-        
       </main>
     </div>
   );
