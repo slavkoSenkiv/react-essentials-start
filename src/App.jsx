@@ -3,13 +3,26 @@ import Header from "./components/Header/Header";
 import CoreConcept from "./components/CoreConcept";
 import TapButton from "./components/TapButton";
 import { useState } from "react";
+
 function App() {
-  let tabContent = "components";
-  const [selectedTopic, setSelectedTopic] = useState(tabContent);
+  let tabContent = <p>Please select a topic!</p>;
+
+  const [selectedTopic, setSelectedTopic] = useState();
 
   function handleSelect(selectedButton) {
     setSelectedTopic(selectedButton);
-    console.log(selectedTopic);
+  }
+  
+  if (selectedTopic) {
+    tabContent = (
+      <div id="tab-content">
+        <h3>{EXAMPLES[selectedTopic].title}</h3>
+        <p>{EXAMPLES[selectedTopic].description}</p>
+        <pre>
+          <code>{EXAMPLES[selectedTopic].code}</code>
+        </pre>
+      </div>
+    );
   }
 
   return (
@@ -46,12 +59,8 @@ function App() {
             <TapButton onSelect={() => handleSelect("props")}>Props</TapButton>
             <TapButton onSelect={() => handleSelect("state")}>State</TapButton>
           </menu>
-          <div id="tab-content"></div>
-          <h3>{EXAMPLES[selectedTopic].title}</h3>
-          <p>{EXAMPLES[selectedTopic].description}</p>
-          <pre>
-            <code>{EXAMPLES[selectedTopic].code}</code>
-          </pre>
+          {/* implementation variant 3 */}
+          {tabContent}
         </section>
       </main>
     </div>
@@ -59,3 +68,29 @@ function App() {
 }
 
 export default App;
+
+{/* implementation variant 1 */}<>
+  {/* {!selectedTopic ? (
+  <p>Please select a topic!</p>
+) : (
+  <div id="tab-content">
+    <h3>{EXAMPLES[selectedTopic].title}</h3>
+    <p>{EXAMPLES[selectedTopic].description}</p>
+    <pre>
+      <code>{EXAMPLES[selectedTopic].code}</code>
+    </pre>
+  </div>
+)} */}
+</>
+{/* implementation variant 2*/}<>
+  {/* {!selectedTopic && <p>Please select a topic!</p>}
+{selectedTopic && (
+  <div id="tab-content">
+    <h3>{EXAMPLES[selectedTopic].title}</h3>
+    <p>{EXAMPLES[selectedTopic].description}</p>
+    <pre>
+      <code>{EXAMPLES[selectedTopic].code}</code>
+    </pre>
+  </div>
+)} */}
+</>
