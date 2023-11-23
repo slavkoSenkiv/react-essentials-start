@@ -12,7 +12,7 @@ function App() {
   function handleSelect(selectedButton) {
     setSelectedTopic(selectedButton);
   }
-  
+
   if (selectedTopic) {
     tabContent = (
       <div id="tab-content">
@@ -52,12 +52,25 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TapButton onSelect={() => handleSelect("components")}>
-              Components
-            </TapButton>
-            <TapButton onSelect={() => handleSelect("jsx")}>JSX</TapButton>
-            <TapButton onSelect={() => handleSelect("props")}>Props</TapButton>
-            <TapButton onSelect={() => handleSelect("state")}>State</TapButton>
+            <TapButton
+              isSelected={selectedTopic === "components"}
+              onSelect={() => handleSelect("components")}
+              >Components</TapButton>
+
+            <TapButton 
+              isSelected={selectedTopic === "jsx"} 
+              onSelect={() => handleSelect("jsx")}
+              >JSX</TapButton>
+
+            <TapButton 
+              isSelected={selectedTopic === "props"} 
+              onSelect={() => handleSelect("props")}
+              >Props</TapButton>
+
+            <TapButton 
+              isSelected={selectedTopic === "state"} 
+              onSelect={() => handleSelect("state")}
+              >State</TapButton>
           </menu>
           {/* implementation variant 3 */}
           {tabContent}
@@ -69,7 +82,10 @@ function App() {
 
 export default App;
 
-{/* implementation variant 1 */}<>
+{
+  /* implementation variant 1 */
+}
+<>
   {/* {!selectedTopic ? (
   <p>Please select a topic!</p>
 ) : (
@@ -81,8 +97,11 @@ export default App;
     </pre>
   </div>
 )} */}
-</>
-{/* implementation variant 2*/}<>
+</>;
+{
+  /* implementation variant 2*/
+}
+<>
   {/* {!selectedTopic && <p>Please select a topic!</p>}
 {selectedTopic && (
   <div id="tab-content">
@@ -93,4 +112,4 @@ export default App;
     </pre>
   </div>
 )} */}
-</>
+</>;
