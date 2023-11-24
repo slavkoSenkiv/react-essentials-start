@@ -32,19 +32,23 @@ function App() {
         <section id="core-concepts">
           <h2>Core Concepts</h2>
           <ul>
-            {/* the following syntax is used when 
-          component prop names DO NOT match the object prop names */}
+            <>
+              {/* the following syntax is used when 
+            component prop names DO NOT match the object prop names
             <CoreConcept
               title={CORE_CONCEPTS[0].title}
               description={CORE_CONCEPTS[0].description}
-              image={CORE_CONCEPTS[0].image}
-            />
-
-            {/* the following syntax is used when 
-          component prop names MATCH the object prop names */}
+              image={CORE_CONCEPTS[0].image}/> 
+              
+            the following syntax is used when 
+            component prop names MATCH the object prop names               
             <CoreConcept {...CORE_CONCEPTS[1]} />
             <CoreConcept {...CORE_CONCEPTS[2]} />
-            <CoreConcept {...CORE_CONCEPTS[3]} />
+            <CoreConcept {...CORE_CONCEPTS[3]} /> */}
+            </>
+            {CORE_CONCEPTS.map((conceptItem) => (
+              <CoreConcept key={conceptItem.title} {...conceptItem} />
+            ))}
           </ul>
           <h2>Time to get started!</h2>
         </section>
@@ -55,22 +59,30 @@ function App() {
             <TapButton
               isSelected={selectedTopic === "components"}
               onSelect={() => handleSelect("components")}
-              >Components</TapButton>
+            >
+              Components
+            </TapButton>
 
-            <TapButton 
-              isSelected={selectedTopic === "jsx"} 
+            <TapButton
+              isSelected={selectedTopic === "jsx"}
               onSelect={() => handleSelect("jsx")}
-              >JSX</TapButton>
+            >
+              JSX
+            </TapButton>
 
-            <TapButton 
-              isSelected={selectedTopic === "props"} 
+            <TapButton
+              isSelected={selectedTopic === "props"}
               onSelect={() => handleSelect("props")}
-              >Props</TapButton>
+            >
+              Props
+            </TapButton>
 
-            <TapButton 
-              isSelected={selectedTopic === "state"} 
+            <TapButton
+              isSelected={selectedTopic === "state"}
               onSelect={() => handleSelect("state")}
-              >State</TapButton>
+            >
+              State
+            </TapButton>
           </menu>
           {/* implementation variant 3 */}
           {tabContent}

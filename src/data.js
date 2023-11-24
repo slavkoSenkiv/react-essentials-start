@@ -21,13 +21,13 @@ export const CORE_CONCEPTS = [
     title: "Props",
     description:
       "Make components configurable (and therefore reusable) by passing input data to them.",
-  },
+  }/* ,
   {
     image: stateImg,
     title: "State",
     description:
       "React-managed data which, when changed, causes the component to re-render & the UI to update.",
-  },
+  }, */
 ];
 
 export const EXAMPLES = {
