@@ -1,7 +1,8 @@
-import TapButton from './TapButton';
-import { EXAMPLES } from '../data';
 import { useState } from 'react';
+import { EXAMPLES } from '../data';
+import TapButton from './TapButton';
 import Section from './Section';
+import Tabs from './Tabs';
 
 export default function Examples () {
 
@@ -27,7 +28,8 @@ export default function Examples () {
   }
   return (
     <Section title="Examples" id="examples">
-    <menu>
+    <Tabs buttons={
+    <>
       <TapButton
         isSelected={selectedTopic === "components"}
         onClick={() => handleSelect("components")}
@@ -55,9 +57,7 @@ export default function Examples () {
       >
         State
       </TapButton>
-    </menu>
-    {/* implementation variant 3 */}
-    {tabContent}
+    </>}>{tabContent}</Tabs>      
   </Section>
   )
 }
