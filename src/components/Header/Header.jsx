@@ -13,7 +13,7 @@ export default function Header() {
 
   return (
     <header>
-      <img src={headerImage} />
+      <img src={headerImage}/>
       <h1>React Essencials</h1>
       <p>{randAdjective} React concepts you will need for almost any app you are going to</p>
     </header>
