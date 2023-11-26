@@ -1,5 +1,6 @@
 import Header from "./components/Header/Header";
-import CoreConcepts from "./components/CoreConcepts";
+import CoreConcepts from "./components/Concepts/CoreConcepts";
+import Examples from "./components/Examples/Examples";
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
       <Header />
       <main>
         <CoreConcepts />
+        <Examples />
       </main>
     </>
   );
