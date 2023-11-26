@@ -1,5 +1,4 @@
-export default function App(){
-  return (
-    <h1>Hello world</h1>
-  )
+import Header from "./components/Header/Header";
+export default function App() {
+  return <Header />;
 }
