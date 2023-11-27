@@ -9,10 +9,6 @@ export default function Examples() {
 
   const [selectedTopic, setSelectedTopic] = useState();
 
-  function handleSelect(selectedButton) {
-    setSelectedTopic(selectedButton);
-  }
-
   if (selectedTopic) {
     tabContent = (
       <div id="tab-content">
@@ -32,36 +28,95 @@ export default function Examples() {
           <>
             <TapButton
               isSelected={selectedTopic === "components"}
-              onClick={() => handleSelect("components")}
+              onClick={() => setSelectedTopic("components")}
             >
               Components
             </TapButton>
 
             <TapButton
               isSelected={selectedTopic === "jsx"}
-              onClick={() => handleSelect("jsx")}
+              onClick={() => setSelectedTopic("jsx")}
             >
               JSX
             </TapButton>
-            
+
             <TapButton
               isSelected={selectedTopic === "props"}
-              onClick={() => handleSelect("props")}
+              onClick={() => setSelectedTopic("props")}
             >
               Props
             </TapButton>
 
             <TapButton
               isSelected={selectedTopic === "state"}
-              onClick={() => handleSelect("state")}
+              onClick={() => setSelectedTopic("state")}
             >
               State
             </TapButton>
           </>
         }
+        {EXAMPLES.map((example) => {
+
+          console.log(example);
+            {/* <TapButton
+              key={example.title}
+              isSelected={selectedTopic === example.title}
+              onClick={() => setSelectedTopic(example.title)}
+            >
+              {example.title}
+            </TapButton> */}
+        })}
       >
         {tabContent}
       </Tabs>
     </Section>
   );
 }
+
+/* 
+buttons={
+<>
+  <TapButton
+    isSelected={selectedTopic === "components"}
+    onClick={() => setSelectedTopic("components")}
+  >
+    Components
+  </TapButton>
+
+  <TapButton
+    isSelected={selectedTopic === "jsx"}
+    onClick={() => setSelectedTopic("jsx")}
+  >
+    JSX
+  </TapButton>
+
+  <TapButton
+    isSelected={selectedTopic === "props"}
+    onClick={() => setSelectedTopic("props")}
+  >
+    Props
+  </TapButton>
+
+  <TapButton
+    isSelected={selectedTopic === "state"}
+    onClick={() => setSelectedTopic("state")}
+  >
+    State
+  </TapButton>
+</>
+}
+*/
+
+/* 
+buttons = {
+  EXAMPLES.map((example) => {
+    <TapButton
+      key={example.title}
+      isSelected={selectedTopic === example.title}
+      onClick={() => setSelectedTopic(example.title)}
+    >
+      {example.title}
+    </TapButton>
+  })
+} 
+*/
