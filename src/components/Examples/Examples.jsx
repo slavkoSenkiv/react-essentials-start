@@ -2,9 +2,10 @@ import Section from "./Section";
 import Tabs from "./Tabs";
 import { EXAMPLES } from "../../data";
 import TapButton from "./TapButton";
+import { useState } from "react";
 
 export default function Examples() {
-  let tabContent = <p>Please select a topic!</p>;
+  let tabContent = <p>Please select a button</p>;
 
   const [selectedTopic, setSelectedTopic] = useState();
 
@@ -23,19 +24,42 @@ export default function Examples() {
       </div>
     );
   }
+
   return (
     <Section title="Examples" id="examples">
-      <Tabs button={
-        EXAMPLES.map((example) => {
-          <TapButton 
-            key = {example.title}
-            isSelected={selectedTopic === example.title.toLowerCase()}
-            onClick={() => handleSelect(example.title.toLowerCase())}
-          >
-            {example.title}
-          </TapButton>
-        })
-      }>
+      <Tabs
+        buttons={
+          <>
+            <TapButton
+              isSelected={selectedTopic === "components"}
+              onClick={() => handleSelect("components")}
+            >
+              Components
+            </TapButton>
+
+            <TapButton
+              isSelected={selectedTopic === "jsx"}
+              onClick={() => handleSelect("jsx")}
+            >
+              JSX
+            </TapButton>
+            
+            <TapButton
+              isSelected={selectedTopic === "props"}
+              onClick={() => handleSelect("props")}
+            >
+              Props
+            </TapButton>
+
+            <TapButton
+              isSelected={selectedTopic === "state"}
+              onClick={() => handleSelect("state")}
+            >
+              State
+            </TapButton>
+          </>
+        }
+      >
         {tabContent}
       </Tabs>
     </Section>
