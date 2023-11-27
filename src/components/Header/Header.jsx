@@ -1,24 +1,21 @@
-import reactImage from "../../assets/react-core-concepts.png";
-import './Header.css';
+import headerImage from "../../assets/react-core-concepts.png";
+import './Header.css'
 
-const reactDescriptions = ["Fundamental", "Crucial", "Core"];
+const reactAdjectives = ["Fundamental", "Crucial", "Core"];
 
-function getRandomInt(max) {
+function getRandInt (max) {
   return Math.floor(Math.random() * (max + 1));
 }
 
 export default function Header() {
-  const randId = getRandomInt(reactDescriptions.length - 1);
-  const desc = reactDescriptions[randId];
+  const getRandId = getRandInt(reactAdjectives.length - 1);
+  const randAdjective = reactAdjectives[getRandId];
 
   return (
     <header>
-      <img src={reactImage} alt="Stylized atom" />
-      <h1>React Essentials</h1>
-      <p>
-        {desc} React concepts you will need for almost any app you are going to
-        build!
-      </p>
+      <img src={headerImage}/>
+      <h1>React Essencials</h1>
+      <p>{randAdjective} React concepts you will need for almost any app you are going to</p>
     </header>
   );
 }

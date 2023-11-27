@@ -1,10 +1,8 @@
 import Header from "./components/Header/Header";
-import CoreConcepts from "./components/CoreConcepts";
-import Examples from "./components/Examples";
+import CoreConcepts from "./components/Concepts/CoreConcepts";
+import Examples from "./components/Examples/Examples";
 
 function App() {
-
-
   return (
     <>
       <Header />
@@ -17,5 +15,3 @@ function App() {
 }
 
 export default App;
-
-
