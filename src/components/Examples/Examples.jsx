@@ -25,46 +25,14 @@ export default function Examples() {
     <Section title="Examples" id="examples">
       <Tabs
         buttons={
-          <>
+          Object.keys(EXAMPLES).map((key) => {
             <TapButton
-              isSelected={selectedTopic === "components"}
-              onClick={() => setSelectedTopic("components")}
+              key={key}
+              isSelected={selectedTopic === key}
+              onClick={() => setSelectedTopic(key)}
             >
-              Components
-            </TapButton>
-
-            <TapButton
-              isSelected={selectedTopic === "jsx"}
-              onClick={() => setSelectedTopic("jsx")}
-            >
-              JSX
-            </TapButton>
-
-            <TapButton
-              isSelected={selectedTopic === "props"}
-              onClick={() => setSelectedTopic("props")}
-            >
-              Props
-            </TapButton>
-
-            <TapButton
-              isSelected={selectedTopic === "state"}
-              onClick={() => setSelectedTopic("state")}
-            >
-              State
-            </TapButton>
-          </>
-        }
-        {EXAMPLES.map((example) => {
-
-          console.log(example);
-            {/* <TapButton
-              key={example.title}
-              isSelected={selectedTopic === example.title}
-              onClick={() => setSelectedTopic(example.title)}
-            >
-              {example.title}
-            </TapButton> */}
+              {EXAMPLES[key].title}
+            </TapButton>;
         })}
       >
         {tabContent}
@@ -107,16 +75,3 @@ buttons={
 }
 */
 
-/* 
-buttons = {
-  EXAMPLES.map((example) => {
-    <TapButton
-      key={example.title}
-      isSelected={selectedTopic === example.title}
-      onClick={() => setSelectedTopic(example.title)}
-    >
-      {example.title}
-    </TapButton>
-  })
-} 
-*/
